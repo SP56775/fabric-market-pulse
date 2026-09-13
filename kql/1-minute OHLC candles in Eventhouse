@@ -1,0 +1,25 @@
+let T =
+    MarketTicks
+    | where event_time > ago(2h)
+    | extend minute_ts = bin(event_time, 1m);
+let O =
+    T
+    | summarize arg_min(event_time, price) by symbol, minute_ts
+    | project symbol, minute_ts, Open = price;
+let C =
+    T
+    | summarize arg_max(event_time, price) by symbol, minute_ts
+    | project symbol, minute_ts, Close = price;
+let HLV =
+    T
+    | summarize
+        High = max(price),
+        Low = min(price),
+        Volume = sum(last_size),
+        Trades = count()
+      by symbol, minute_ts;
+HLV
+| join kind=inner O on symbol, minute_ts
+| join kind=inner C on symbol, minute_ts
+| project minute_ts, symbol, Open, High, Low, Close, Volume, Trades
+| order by symbol asc, minute_ts asc
