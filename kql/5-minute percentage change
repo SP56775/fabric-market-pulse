@@ -1,0 +1,16 @@
+let recent =
+    MarketTicks
+    | where event_time > ago(5m);
+let start_price =
+    recent
+    | summarize arg_min(event_time, price) by symbol
+    | project symbol, start_price = price;
+let end_price =
+    recent
+    | summarize arg_max(event_time, price) by symbol
+    | project symbol, end_price = price;
+start_price
+| join kind=inner end_price on symbol
+| extend pct_change = round(100.0 * (end_price - start_price) / start_price, 3)
+| project symbol, start_price, end_price, pct_change
+| order by abs(pct_change) desc
