@@ -1,0 +1,8 @@
+MarketTicks
+| where event_time > ago(15m)
+| where isnotnull(best_bid) and isnotnull(best_ask)
+| summarize arg_max(event_time, price, best_bid, best_ask) by symbol
+| extend spread = best_ask - best_bid
+| extend spread_pct = round(100.0 * spread / price, 4)
+| project symbol, event_time, price, best_bid, best_ask, spread, spread_pct
+| order by spread_pct desc
