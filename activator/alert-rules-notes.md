@@ -48,11 +48,7 @@ Fabric Activator
 - Send email notification.
 
 **Example alert:**
-> BTCUSDT price decreased by more than 2%.
-
-
-**Condition:**
-- 5-minute price change > 0.01%
+> BTCUSDT price decreased by more than -0.01%.
 
 **Action:**
 - Send email notification.
