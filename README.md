@@ -3,8 +3,6 @@
 Real-time cryptocurrency market analytics on Microsoft Fabric — tracking
 Bitcoin, Ethereum, and Solana, with a live dashboard and automated alerts.
 
-![Architecture Diagram](docs/architecture-diagram.png)
-
 ## Problem Statement
 
 Cryptocurrency markets move fast — prices, trading volumes, and volatility
