@@ -1,0 +1,5 @@
+MarketTicks
+| where event_time > ago(1h)
+| summarize arg_max(event_time, price, best_bid, best_ask, last_size) by symbol
+| project symbol, event_time, price, best_bid, best_ask, last_size
+| order by symbol asc
