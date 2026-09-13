@@ -29,20 +29,20 @@ Fabric Activator
 **Purpose:** Detect a rapid increase in cryptocurrency price.
 
 **Condition:**
-- Price change percentage > 2%
+- Price change percentage > 0.01%
 
 **Action:**
 - Send email notification.
 
 **Example alert:**
-> BTCUSDT price increased by more than 2%.
+> BTCUSDT price increased by more than 0.01%.
 
 ### 2. Significant Price Decrease
 
 **Purpose:** Detect a rapid decrease in cryptocurrency price.
 
 **Condition:**
-- Price change percentage < -2%
+- Price change percentage < -0.01%
 
 **Action:**
 - Send email notification.
@@ -50,31 +50,15 @@ Fabric Activator
 **Example alert:**
 > BTCUSDT price decreased by more than 2%.
 
-### 3. Volume Anomaly
-
-**Purpose:** Detect unusually high trading volume.
 
 **Condition:**
-- Current volume > 2 × normal/baseline volume
+- 5-minute price change > 0.01%
 
 **Action:**
 - Send email notification.
 
 **Example alert:**
-> Unusual trading volume detected for ETHUSDT.
-
-### 4. Large 5-Minute Price Movement
-
-**Purpose:** Detect significant short-term market movement.
-
-**Condition:**
-- 5-minute price change > 1%
-
-**Action:**
-- Send email notification.
-
-**Example alert:**
-> SOLUSDT moved more than 1% in the last 5 minutes.
+> SOLUSDT moved more than 0.01% in the last 5 minutes.
 
 ## Alert Action
 
@@ -87,7 +71,6 @@ The notification should contain:
 - Current price
 - Price change percentage
 - Detection time
-- Reason for the alert
 
 ## Security
 
