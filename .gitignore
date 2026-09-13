@@ -1,1 +1,31 @@
+# Environment variables & secrets
+.env
+config.env
+*.env
+secrets.json
+connection_strings.txt
 
+# Python
+__pycache__/
+*.pyc
+venv/
+env/
+.venv/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Power BI temp files
+*.pbix.lock
+~$*.pbix
+
+# VS Code
+.vscode/
+
+# Fabric/Azure specific
+*.pem
+*.key
