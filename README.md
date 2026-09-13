@@ -2,8 +2,6 @@
 
 Real-time cryptocurrency market analytics on Microsoft Fabric — tracking
 Bitcoin, Ethereum, and Solana, with a live dashboard and automated alerts.
-<img width="1400" height="900" alt="architecture-diagram" src="https://github.com/user-attachments/assets/107347b2-705b-40eb-9015-c843c8080c4f" />
-
 
 ## Problem Statement
 
