@@ -1,0 +1,4 @@
+MarketTicks
+| where event_time > ago(1h)
+| summarize AvgPrice = avg(price) by symbol, bin(event_time, 1m)
+| order by event_time asc
